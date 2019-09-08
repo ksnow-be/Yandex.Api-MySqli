@@ -1,0 +1,79 @@
+
+
+#suggest
+{
+	
+	height: 30px;
+}
+
+.panel
+{
+	
+	text-align: center;
+}
+
+#left_panel
+{
+	border-left: none;
+}
+
+#right_panel
+{
+	border-right: none;
+}
+
+
+
+.basics
+{
+	width: 100%;
+	margin-top: 2px;
+	margin-bottom: 4px;
+
+}
+
+.choice
+{
+	width: 100%;
+
+}
+
+#forma
+{
+	display: none;
+}
+
+#info_marker
+{
+	text-align: center;
+	margin-top: 30px;
+}
+
+.poln_input
+{
+	border:none;
+}
+
+#selector_left
+{
+	height: 3px;
+	width: 100%;
+	background: #f2f8fa;
+}
+
+#selector_right
+{
+	height: 3px;
+	width: 100%;
+	background: #f2f8fa;	
+}
+
+.div_spisok:hover
+{
+	cursor: pointer;
+}
+
+.top-selectors:hover
+{
+	cursor: pointer;
+}
