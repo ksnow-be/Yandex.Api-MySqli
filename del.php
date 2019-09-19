@@ -6,7 +6,17 @@
 	    		exit();
 			}
 
-			$query = "DELETE FROM markers WHERE addr = '$addr'";
-			mysqli_query($mysqli, $query);
+			$file = mysqli_query($mysqli, "SELECT upfile FROM markers WHERE addr = '$addr'");
+			$arr_res = array();
+			while ($row = mysqli_fetch_assoc($file))
+			{
+      			$arr_res[] = $row;
+   			}
+   			$res = $arr_res[0]['upfile'];
+   			print_r($res);
+   			unlink("uploads/" . $res);
+
+			$query2 = "DELETE FROM markers WHERE addr = '$addr'";
+			mysqli_query($mysqli, $query2);
 			mysqli_close($mysqli);
  ?>

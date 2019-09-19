@@ -41,10 +41,10 @@
 						    <input type="text" class="form-control" id="suggest" placeholder="Адрес">
 						  </div>
 						    <div class="form-group col-md-6">
-						      <input type="number" class="form-control" id="metrazh" placeholder="Метраж">
+						      <input type="text" class="form-control" id="metrazh" placeholder="Метраж">
 						    </div>
 						    <div class="form-group col-md-6">
-						      <input type="number" class="form-control" id="price" placeholder="Стоимость м/год">
+						      <input type="text" class="form-control" id="price" placeholder="Стоимость м/год">
 						    </div>
 					  </div>
 					  <div class="form-group">
@@ -118,19 +118,19 @@
 					  <div class="form-row">
 					  	<div class="form-group col-12">
 					  		<label for="sverka"><strong>Финансовая часть</strong></label>
-					  		<input type="number" class="form-control" id="sverka" placeholder="ком 3 т.р./50 м2. Сверка 0.5 год">
+					  		<input type="text" class="form-control" id="sverka" placeholder="ком 3 т.р./50 м2. Сверка 0.5 год">
 					  	</div>
 					  	<div class="form-group col-md-6">
-						    <input type="number" class="form-control" id="stavka" placeholder="Ставка/мес">
+						    <input type="text" class="form-control" id="stavka" placeholder="Ставка/мес">
 					  	</div>
 					  	<div class="form-group col-md-6">
-						    <input type="number" class="form-control" id="index" placeholder="Индекс(3/4)">
+						    <input type="text" class="form-control" id="index" placeholder="Индекс(3/4)">
 					  	</div>
 					  	<div class="form-group col-md-6">				  							 
-						    <input type="number" class="form-control" id="kanikuly" placeholder="Каникулы (мес)">	  	
+						    <input type="text" class="form-control" id="kanikuly" placeholder="Каникулы (мес)">	  	
 					  	</div>
 					  	<div class="form-group col-md-6">				  							 
-						    <input type="number" class="form-control" id="komiss" placeholder="Комиссия нам">	  	
+						    <input type="text" class="form-control" id="komiss" placeholder="Комиссия нам">	  	
 					  	</div>
 					  </div>
 					  <button onclick="adding()" class="btn btn-success" style="margin-top: 20px; margin-bottom: 20px;">Добавить</button>
@@ -288,43 +288,56 @@
 				</button>
   			</div>
   		</div>
+  		<div class="row" style="background: ; margin-top: 30px;">
+  			<div class="col-5"></div>
+  			<div class="col-1" style="color:#737CA1;"><strong>Файл: </strong></div>
+  			<div class="col-5" style="background: ; text-align: center;">  <!------------------------------------------------------------->
+				<div id="nofile" style="display: none;">
+					<input type="file" multiple="multiple" id="inputfile"><button class="btn btn-primary" onclick="upload_file()">Загрузить</button><div id="ajax-reply" style="display: none;"></div>
+				</div>
+				<div id="estfile" style="display: none;">
+					
+				</div>
+  			</div>
+  			<div class="col-1"></div>
+  		</div>
   		<div class="row" style="margin-top: 40px;">
 			<table class="table" style=" background: #f5f5f5">
 			  <thead>
 			    <tr>
 			      <th scope="col" colspan="2" style="color: #737CA1; border: none;">Основная информация</th>
-			      <th scope="col" colspan="2" style="color: #737CA1; border:none;">Дополнительная информация</th>
+			      <th scope="col" colspan="2" style="color: #737CA1; border: none;">Техническая часть</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
 			      <th scope="row">Метраж</th>
-			      <td><input type="text" id="poln_metrazh" class="poln_input" disabled="true"></td>
+			      <td><input type="text" id="poln_metrazh" style="width: 100%;" class="poln_input" disabled="true"></td>
 			      <th scope="row">Этаж</th>
-			      <td><input type="text" id="poln_floor" class="poln_input" disabled="true"></td>
+			      <td><input type="text" id="poln_floor" style="width: 100%;" class="poln_input" disabled="true"></td>
 			    </tr>
 			    <tr>
 			      <th scope="row">Цена за кубик</th>
-			      <td><input type="text" id="poln_price" class="poln_input" disabled="true"></td>
+			      <td><input type="text" id="poln_price" style="width: 100%;" class="poln_input" disabled="true"></td>
 			      <th scope="row">Отдельный вход</th>
 			      <td>
-			      	<select class="form-control" id="poln_sep_exit" disabled="true">
-					      <option>Отельный вход - Да</option>
-					      <option>Отдельный вход - Нет</option>
-	    			</select>
-			      </td>
+					<select class="form-control" id="poln_sep_exit" disabled="true">
+						      <option>Отельный вход - Да</option>
+						      <option>Отдельный вход - Нет</option>
+		    		</select>
+				  </td>
 			    </tr>
 			    <tr>
 			      <th scope="row">Ссылка</th>
 			      <td><input type="text" id="poln_link" style="width: 100%;" class="poln_input" disabled="true"></td>
 			      <th scope="row">Количество ступеней</th>
-			      <td><input type="text" id="poln_steps" class="poln_input" disabled="true"></td>
+			      <td><input type="text" id="poln_steps" style="width: 100%;" class="poln_input" disabled="true"></td>
 			    </tr>
 			    <tr>
 			      <th scope="row">Комментарий</th>
 			      <td><input type="text" id="poln_comment" style="width: 100%;" class="poln_input" disabled="true"></td>
 			      <th scope="row">Высота потолка</th>
-			      <td><input type="text" id="poln_high" class="poln_input" disabled="true"></td>
+			      <td><input type="text" id="poln_high" style="width: 100%;" class="poln_input" disabled="true"></td>
 			    </tr>
 			    <tr>
 			      <th scope="row">Статус</th>
@@ -339,7 +352,7 @@
 	    			</select>
 			      </td>
 			      <th scope="row">Мощность</th>
-			      <td><input type="text" id="poln_power" class="poln_input" disabled="true"></td>
+			      <td><input type="text" id="poln_power" style="width: 100%;" class="poln_input" disabled="true"></td>
 			    </tr>
 			    <tr>
 			      <th scope="row">Метка на карте</th>
@@ -349,51 +362,87 @@
 	    			</select>
 			      </td>
 			      <th scope="row">Ремонт</th>
-			      <td><input type="text" id="poln_remont" class="poln_input" disabled="true"></td>
-			    </tr>
-			    <tr>
-			      <th></th>
-			      <td>
-
-			      </td>
-			      <th scope="row">ком 3 т.р./50 м2. Сверка 0.5 год</th>
-			      <td><input type="text" id="poln_sverka" class="poln_input" disabled="true"></td>
-			    </tr>
-			    <tr>
-			      <th></th>
-			      <td>
-
-			      </td>
-			      <th scope="row">Ставка/мес</th>
-			      <td><input type="text" id="poln_stavka" class="poln_input" disabled="true"></td>
-			    </tr>
-			    <tr>
-			      <th></th>
-			      <td>
-
-			      </td>
-			      <th scope="row">Индекс (с 3го г 4%)</th>
-			      <td><input type="text" id="poln_index" class="poln_input" disabled="true"></td>
-			    </tr>
-			    <tr>
-			      <th></th>
-			      <td>
-
-			      </td>
-			      <th scope="row">Каникулы, мес</th>
-			      <td><input type="text" id="poln_kanikuly" class="poln_input" disabled="true"></td>
-			    </tr>
-			    <tr>
-			      <th></th>
-			      <td>
-
-			      </td>
-			      <th scope="row">Комиссия нам</th>
-			      <td><input type="text" id="poln_komiss" class="poln_input" disabled="true"></td>
+			      <td><input type="text" id="poln_remont" style="width: 100%;" class="poln_input" disabled="true"></td>
 			    </tr>
 			  </tbody>
 			</table>
+
+			<table class="table" style=" background: #f5f5f5">
+				<thead>
+				    <tr>
+				      <th scope="col" colspan="" style="color: #737CA1; border: none;">Позиция</th>
+				      <th scope="col" colspan="" style="color: #737CA1; border:none;">В обьявлении</th>
+				      <th scope="col" colspan="" style="color: #737CA1; border: none;">Мы предложили</th>
+				      <th scope="col" colspan="" style="color: #737CA1; border:none;">Договорились</th>
+				    </tr>
+			  	</thead>
+			  	<tbody>
+			  		<tr>
+				    	<th scope="row" colspan="4" style="color: gray; background: #fffafb;">Финансовая часть</th>
+				    </tr> 
+				    <tr>
+				      <th scope="row">ком 3 т.р./50 м2. Сверка 0.5 год</th>
+				      <td><input type="text" id="poln_sverka" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_sverka" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_sverka" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Ставка/мес</th>
+				      <td><input type="text" id="poln_stavka" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_stavka" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_stavka" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Индекс (с 3го г 4%)</th>
+				      <td><input type="text" id="poln_index" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_index" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_index" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Каникулы, мес</th>
+				      <td><input type="text" id="poln_kanikuly" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_kanikuly" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_kanikuly" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Комиссия нам</th>
+				      <td><input type="text" id="poln_komiss" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_komiss" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_komiss" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				    	<th scope="row" colspan="4" style="color: gray; background: #fffafb;">Юридическая часть</th>
+				    </tr>
+				    <tr>
+				      <th scope="row">Наш договор</th>
+				      <td><input type="text" id="poln_nash" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_nash" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_nash" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Выход собств только при неопл</th>
+				      <td><input type="text" id="poln_vyhod" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_vyhod" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_vyhod" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Есть зарег право?</th>
+				      <td><input type="text" id="poln_pravo" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_pravo" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_pravo" class="poln_input" disabled="true"></td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Длинный договор</th>
+				      <td><input type="text" id="poln_dlinn" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="p_poln_dlinn" class="poln_input" disabled="true"></td>
+				      <td><input type="text" id="d_poln_dlinn" class="poln_input" disabled="true"></td>
+				    </tr>
+
+			  	</tbody>
+			</table>
 		</div>
+
+
 		<div class="row" style="margin-bottom: 30px;">
 			<div class="col-8"></div>
 			<div class="col-2">
@@ -405,7 +454,10 @@
 		</div>
 		<div class="row" id="kok" style="margin-top: 80px;"></div>
   	</div>
+
+
 </body>
+
 
 <script>
 	$('input[id="new_metka"]').change(function(){
@@ -472,7 +524,7 @@
 		  "/exec_filter.php",
 		  {
 		  		param1: cur_city
-		  },
+		  }, 
 		  onAjaxSuccess
 		);
 		 
@@ -480,56 +532,58 @@
 		{
 			var json = JSON.parse(data);
 			clear_map();
-			draw_with_checkboxes(json, checked);
+			draw_with_checkboxes(json, checked, cur_city);
 		}
 	}
 </script>
 
 <script>
-	function draw_with_checkboxes(obj, checked)
+	function draw_with_checkboxes(obj, checked, cur_city)
 	{
 
 		if (checked.length == 0)
 		{
 			for (var k in obj)
 			{
-				  	
-			  		var addr = obj[k].addr;
-				  	var metrazh = obj[k].metrazh;
-					var price = obj[k].price;
-					var link = obj[k].link;
-					var comment = obj[k].comment;
-					var kind = obj[k].typeof;
+				  	if (obj[k].city == cur_city)
+					{
+						var addr = obj[k].addr;
+						var metrazh = obj[k].metrazh;
+						var price = obj[k].price;
+						var link = obj[k].link;
+						var comment = obj[k].comment;
+						var kind = obj[k].typeof;
 
-					if (metrazh == "null" || metrazh == null)
-							metrazh = "";
-					if (price == "null" || price == null)
-							price = "";
-					if (link == "null" || link == null)
-							link = "";
-					if (comment == "null" || comment == null)
-							comment = "";			
-
-
-					var pictire = set_pic(kind);
-					
-
-					var baloon = "<strong>Метраж: </strong>" + metrazh + "<br>"
-								+ "<strong>Цена за кубик: </strong>" + price + "<br>"
-								+ "<strong>Ссылка: </strong>" + "<a href='" + link + "'>" + link + "</a>" + "<br>"
-								+ "<strong>Комментраий: </strong>" + comment + "<br";
+						if (metrazh == "null" || metrazh == null)
+								metrazh = "";
+						if (price == "null" || price == null)
+								price = "";
+						if (link == "null" || link == null)
+								link = "";
+						if (comment == "null" || comment == null)
+								comment = "";			
 
 
-							myPlacemark = new ymaps.Placemark([obj[k].lat, obj[k].lng], {
-						 		balloonContentHeader: addr,
-				 				balloonContentBody: baloon,
-				 				balloonContentFooter: "<div><button onclick='details()' style='border: 1px solid black; background: #737CA1;'>Подробная информация</button></div>"
-						 }, {
-						 	iconLayout: 'default#image',
-						 	iconImageHref: pictire,
-						 });
+						var pictire = set_pic(kind);
+						
 
-						myMap.geoObjects.add(myPlacemark);
+						var baloon = "<strong>Метраж: </strong>" + metrazh + "<br>"
+									+ "<strong>Цена за кубик: </strong>" + price + "<br>"
+									+ "<strong>Ссылка: </strong>" + "<a href='" + link + "'>" + link + "</a>" + "<br>"
+									+ "<strong>Комментраий: </strong>" + comment + "<br";
+
+
+								myPlacemark = new ymaps.Placemark([obj[k].lat, obj[k].lng], {
+									balloonContentHeader: addr,
+									balloonContentBody: baloon,
+									balloonContentFooter: "<div><button onclick='details()' style='border: 1px solid black; background: #737CA1;'>Подробная информация</button></div>"
+							}, {
+								iconLayout: 'default#image',
+								iconImageHref: pictire,
+							});
+
+							myMap.geoObjects.add(myPlacemark);
+					}
 			}
 		}
 		else
@@ -622,6 +676,7 @@
 		else
 		{
 			document.getElementById('filter_button').style.display = "none";
+			clear_map();
 			draw_from_base();
 		}
 	}
@@ -631,6 +686,7 @@
 <script>
 	function submit_changes()
 	{
+
 		$.get(
 		  "/modify.php",
 		  {
@@ -651,7 +707,29 @@
 			 param15: document.getElementById('poln_stavka').value,
 			 param16: document.getElementById('poln_index').value,
 			 param17: document.getElementById('poln_kanikuly').value,
-			 param18: document.getElementById('poln_komiss').value
+			 param18: document.getElementById('poln_komiss').value,
+			 param19: document.getElementById('poln_nash').value,
+			 param20: document.getElementById('poln_vyhod').value,
+			 param21: document.getElementById('poln_pravo').value,
+			 param22: document.getElementById('poln_dlinn').value,
+			 param23: document.getElementById('p_poln_sverka').value,
+			 param24: document.getElementById('p_poln_stavka').value,
+			 param25: document.getElementById('p_poln_index').value,
+			 param26: document.getElementById('p_poln_kanikuly').value,
+			 param27: document.getElementById('p_poln_komiss').value,
+			 param28: document.getElementById('p_poln_nash').value,
+			 param29: document.getElementById('p_poln_vyhod').value,
+			 param30: document.getElementById('p_poln_pravo').value,
+			 param31: document.getElementById('p_poln_dlinn').value,
+			 param32: document.getElementById('d_poln_sverka').value,
+			 param33: document.getElementById('d_poln_stavka').value,
+			 param34: document.getElementById('d_poln_index').value,
+			 param35: document.getElementById('d_poln_kanikuly').value,
+			 param36: document.getElementById('d_poln_komiss').value,
+			 param37: document.getElementById('d_poln_nash').value,
+			 param38: document.getElementById('d_poln_vyhod').value,
+			 param39: document.getElementById('d_poln_pravo').value,
+			 param40: document.getElementById('d_poln_dlinn').value
 		  },
 		  onAjaxSuccess
 		);
@@ -721,6 +799,75 @@
 		document.getElementById('poln_komiss').disabled = true;
 		
 		document.getElementById('poln_metka_filter').disabled = true;
+
+
+
+
+		document.getElementById('poln_nash').style.background = "none";
+		document.getElementById('poln_nash').disabled = true;
+
+		document.getElementById('poln_vyhod').style.background = "none";
+		document.getElementById('poln_vyhod').disabled = true;
+
+		document.getElementById('poln_pravo').style.background = "none";
+		document.getElementById('poln_pravo').disabled = true;
+
+		document.getElementById('poln_dlinn').style.background = "none";
+		document.getElementById('poln_dlinn').disabled = true;
+
+		document.getElementById('p_poln_sverka').style.background = "none";
+		document.getElementById('p_poln_sverka').disabled = true;
+
+		document.getElementById('p_poln_stavka').style.background = "none";
+		document.getElementById('p_poln_stavka').disabled = true;
+
+		document.getElementById('p_poln_index').style.background = "none";
+		document.getElementById('p_poln_index').disabled = true;
+
+		document.getElementById('p_poln_kanikuly').style.background = "none";
+		document.getElementById('p_poln_kanikuly').disabled = true;
+
+		document.getElementById('p_poln_komiss').style.background = "none";
+		document.getElementById('p_poln_komiss').disabled = true;
+
+		document.getElementById('p_poln_nash').style.background = "none";
+		document.getElementById('p_poln_nash').disabled = true;
+
+		document.getElementById('p_poln_vyhod').style.background = "none";
+		document.getElementById('p_poln_vyhod').disabled = true;
+
+		document.getElementById('p_poln_pravo').style.background = "none";
+		document.getElementById('p_poln_pravo').disabled = true;
+
+		document.getElementById('p_poln_dlinn').style.background = "none";
+		document.getElementById('p_poln_dlinn').disabled = true;
+
+		document.getElementById('d_poln_sverka').style.background = "none";
+		document.getElementById('d_poln_sverka').disabled = true;
+
+		document.getElementById('d_poln_stavka').style.background = "none";
+		document.getElementById('d_poln_stavka').disabled = true;
+
+		document.getElementById('d_poln_index').style.background = "none";
+		document.getElementById('d_poln_index').disabled = true;
+
+		document.getElementById('d_poln_kanikuly').style.background = "none";
+		document.getElementById('d_poln_kanikuly').disabled = true;
+
+		document.getElementById('d_poln_komiss').style.background = "none";
+		document.getElementById('d_poln_komiss').disabled = true;
+
+		document.getElementById('d_poln_nash').style.background = "none";
+		document.getElementById('d_poln_nash').disabled = true;
+
+		document.getElementById('d_poln_vyhod').style.background = "none";
+		document.getElementById('d_poln_vyhod').disabled = true;
+
+		document.getElementById('d_poln_pravo').style.background = "none";
+		document.getElementById('d_poln_pravo').disabled = true;
+
+		document.getElementById('d_poln_dlinn').style.background = "none";
+		document.getElementById('d_poln_dlinn').disabled = true;
 	}
 </script>
 
@@ -780,10 +927,72 @@
 		document.getElementById('poln_komiss').style.background = "#e6ecf5";
 		document.getElementById('poln_komiss').disabled = false;
 
+		document.getElementById('poln_nash').style.background = "#e6ecf5";
+		document.getElementById('poln_nash').disabled = false;
 
+		document.getElementById('poln_vyhod').style.background = "#e6ecf5";
+		document.getElementById('poln_vyhod').disabled = false;
 
-		
-		// document.getElementById('poln_metka_filter').disabled = false;
+		document.getElementById('poln_pravo').style.background = "#e6ecf5";
+		document.getElementById('poln_pravo').disabled = false;
+
+		document.getElementById('poln_dlinn').style.background = "#e6ecf5";
+		document.getElementById('poln_dlinn').disabled = false;
+
+		document.getElementById('p_poln_sverka').style.background = "#e6ecf5";
+		document.getElementById('p_poln_sverka').disabled = false;
+
+		document.getElementById('p_poln_stavka').style.background = "#e6ecf5";
+		document.getElementById('p_poln_stavka').disabled = false;
+
+		document.getElementById('p_poln_index').style.background = "#e6ecf5";
+		document.getElementById('p_poln_index').disabled = false;
+
+		document.getElementById('p_poln_kanikuly').style.background = "#e6ecf5";
+		document.getElementById('p_poln_kanikuly').disabled = false;
+
+		document.getElementById('p_poln_komiss').style.background = "#e6ecf5";
+		document.getElementById('p_poln_komiss').disabled = false;
+
+		document.getElementById('p_poln_nash').style.background = "#e6ecf5";
+		document.getElementById('p_poln_nash').disabled = false;
+
+		document.getElementById('p_poln_vyhod').style.background = "#e6ecf5";
+		document.getElementById('p_poln_vyhod').disabled = false;
+
+		document.getElementById('p_poln_pravo').style.background = "#e6ecf5";
+		document.getElementById('p_poln_pravo').disabled = false;
+
+		document.getElementById('p_poln_dlinn').style.background = "#e6ecf5";
+		document.getElementById('p_poln_dlinn').disabled = false;
+
+		document.getElementById('d_poln_sverka').style.background = "#e6ecf5";
+		document.getElementById('d_poln_sverka').disabled = false;
+
+		document.getElementById('d_poln_stavka').style.background = "#e6ecf5";
+		document.getElementById('d_poln_stavka').disabled = false;
+
+		document.getElementById('d_poln_index').style.background = "#e6ecf5";
+		document.getElementById('d_poln_index').disabled = false;
+
+		document.getElementById('d_poln_kanikuly').style.background = "#e6ecf5";
+		document.getElementById('d_poln_kanikuly').disabled = false;
+
+		document.getElementById('d_poln_komiss').style.background = "#e6ecf5";
+		document.getElementById('d_poln_komiss').disabled = false;
+
+		document.getElementById('d_poln_nash').style.background = "#e6ecf5";
+		document.getElementById('d_poln_nash').disabled = false;
+
+		document.getElementById('d_poln_vyhod').style.background = "#e6ecf5";
+		document.getElementById('d_poln_vyhod').disabled = false;
+
+		document.getElementById('d_poln_pravo').style.background = "#e6ecf5";
+		document.getElementById('d_poln_pravo').disabled = false;
+
+		document.getElementById('d_poln_dlinn').style.background = "#e6ecf5";
+		document.getElementById('d_poln_dlinn').disabled = false;
+
 		
 	}
 </script>
@@ -897,10 +1106,20 @@
 		{
 		   var json = JSON.parse(data);
 
+		  
+			for(var key in json[0]){
+			  if (json[0][key] == "null" || json[0][key] == null)
+			  	json[0][key] = "";
+			}
+
+
 		   var link1 = json[0].link;
 		   var comment1 = json[0].comment;
 		   var filter1 = json[0].filter;
 		   var remont1 = json[0].remont;
+		   var metrazh1 = json[0].metrazh;
+		   var price1 = json[0].price;
+		   var steps1 = json[0].steps;
 
 		   if (link1 == "null")
 		   		link1 = "";
@@ -910,15 +1129,23 @@
 		   		filter1 = "";
 		   	if (remont1 == "null")
 		   		remont1 = "";
+			if (metrazh1 == "null")
+				metrazh1 = "";
+			if (price1 == "null")
+				price1 = "";
+			if (steps1 == 0 || steps1 == null)
+				steps1 = "";
 
-		   document.getElementById('poln_metrazh').value = json[0].metrazh;
-		   document.getElementById('poln_price').value = json[0].price;
+			cancel();
+
+		   document.getElementById('poln_metrazh').value = metrazh1;
+		   document.getElementById('poln_price').value = price1;
 		   document.getElementById('poln_link').value = link1;
 		   document.getElementById('poln_addr').innerHTML = json[0].addr;
 		   document.getElementById('poln_comment').value = comment1;
 		   document.getElementById('poln_floor').value = json[0].floor;
 		   document.getElementById('poln_sep_exit').value = json[0].sep_exit;
-		   document.getElementById('poln_steps').value = json[0].steps;
+		   document.getElementById('poln_steps').value = steps1;
 		   document.getElementById('poln_high').value = json[0].high;
 		   document.getElementById('poln_power').value = json[0].power;
 		   document.getElementById('poln_remont').value = remont1;
@@ -930,8 +1157,110 @@
 		   document.getElementById('poln_index').value = json[0].index34;
 		   document.getElementById('poln_kanikuly').value = json[0].kanikuly;
 		   document.getElementById('poln_komiss').value = json[0].komiss;
+		   document.getElementById('poln_nash').value = json[0].nash;
+		   document.getElementById('poln_vyhod').value = json[0].vyhod;
+		   document.getElementById('poln_pravo').value = json[0].pravo;
+		   document.getElementById('poln_dlinn').value = json[0].dlinn;
+
+		   document.getElementById('p_poln_stavka').value = json[0].p_stavka;
+		   document.getElementById('p_poln_sverka').value = json[0].p_sverka;
+		   document.getElementById('p_poln_index').value = json[0].p_index34;
+		   document.getElementById('p_poln_kanikuly').value = json[0].p_kanikuly;
+		   document.getElementById('p_poln_komiss').value = json[0].p_komiss;
+		   document.getElementById('p_poln_nash').value = json[0].p_nash;
+		   document.getElementById('p_poln_vyhod').value = json[0].p_vyhod;
+		   document.getElementById('p_poln_pravo').value = json[0].p_pravo;
+		   document.getElementById('p_poln_dlinn').value = json[0].p_dlinn;
+
+		   document.getElementById('d_poln_stavka').value = json[0].d_stavka;
+		   document.getElementById('d_poln_sverka').value = json[0].d_sverka;
+		   document.getElementById('d_poln_index').value = json[0].d_index34;
+		   document.getElementById('d_poln_kanikuly').value = json[0].d_kanikuly;
+		   document.getElementById('d_poln_komiss').value = json[0].d_komiss;
+		   document.getElementById('d_poln_nash').value = json[0].d_nash;
+		   document.getElementById('d_poln_vyhod').value = json[0].d_vyhod;
+		   document.getElementById('d_poln_pravo').value = json[0].d_pravo;
+		   document.getElementById('d_poln_dlinn').value = json[0].d_dlinn;
+
+		   if (json[0].upfile == ""){
+		   	  document.getElementById('nofile').style.display = "block";
+		   	  document.getElementById('estfile').style.display = "none";
+		   	  document.getElementById('ajax-reply').style.display = "none";
+		   }
+		   	else{
+		   	  document.getElementById('estfile').style.display = "block";
+		   	  $('#estfile').html('<p><a href="uploads/' + json[0].upfile  + '" download>Скачать файл</a>');
+		   	  document.getElementById('nofile').style.display = "none";
+		   	  document.getElementById('ajax-reply').style.display = "none";
+		   	}
 
 		}
+	}
+</script>
+
+<script type="text/javascript">
+	$('input[type=file]').on('change', function(){
+	files = this.files;
+	console.log(files);
+});
+</script>
+
+<script>
+	function upload_file(){
+		if( typeof files == 'undefined' ){
+			 alert("Файл не найден.");
+			 return;
+		}
+
+		var data = new FormData();
+
+		$.each( files, function( key, value ){
+			data.append( key, value );
+		});
+
+		data.append( 'my_file_upload', 1 );
+		data.append( 'addr', document.getElementById('poln_addr').innerHTML );
+		
+		
+		var html;
+
+
+
+		$.ajax({
+		url         : '/upload.php',
+		type        : 'POST', // важно!
+		data        : data,
+		cache       : false,
+		dataType    : 'json',
+		// отключаем обработку передаваемых данных, пусть передаются как есть
+		processData : false,
+		// отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос/////////////////////////////////////////////////////////////////////
+		contentType : false, 
+		// функция успешного ответа сервера
+		success     : function( respond, status, jqXHR ){
+
+			// ОК - файлы загружены
+			if( typeof respond.error === 'undefined' ){
+				html = '<p style="color:green">Файл загружен</p>';
+				document.getElementById('ajax-reply').style.display = "block";
+				$('#ajax-reply').html( html );
+				document.getElementById('inputfile').value = "";
+			}
+			// ошибка
+			else {
+				html = "ERROR";
+				$('#ajax-reply').html( html );
+			}
+		},
+		// функция ошибки ответа сервера
+		error: function( jqXHR, status, errorThrown ){
+			console.log( 'ОШИБКА AJAX запроса: ' + status + " gggg " + errorThrown);
+			alert("Файл с таким именем уже существует.");
+			document.getElementById('inputfile').value = "";
+		}
+
+	});
+		
 	}
 </script>
 
@@ -948,6 +1277,7 @@
 	var city_filter = document.getElementById('filter_city').value;
 	var suggest_adrrs = [];
 	var need_new_metka = 0;
+	var files;
 </script>
 
 
@@ -985,9 +1315,9 @@
 				var kind = obj[k].typeof;
 				var pictire = set_pic(kind);
 
-				if (metrazh == null)
+				if (metrazh == null || metrazh == "null")
 					metrazh = "";
-				if (price == null)
+				if (price == null || price == "null")
 					price = "";
 				if (link == "null")
 					link = "";
@@ -996,7 +1326,7 @@
 
 				var baloon = "<strong>Метраж: </strong>" + metrazh + "<br>"
 							+ "<strong>Цена за кубик: </strong>" + price + "<br>"
-							+ "<strong>Ссылка: </strong>" + "<a href='" + link + "'>" + link + "</a>" + "<br>"
+							+ "<strong>Ссылка: </strong>" + "<a target='_blank' href='" + link + "'>" + link + "</a>" + "<br>"
 							+ "<strong>Комментраий: </strong>" + comment + "<br";
 
 
@@ -1122,6 +1452,7 @@
 <script>
 	function add_to_table(metrazh, price, link, comment, kind, geo, floor, sep_exit, steps, high, power, remont, city, metka_filter, sverka, stavka, index, kanikuly, komiss)
 	{
+		
 		$.get(
 		  "/insert.php",
 		  {
@@ -1185,7 +1516,7 @@
 
 		var baloon = "<strong>Метраж: </strong>" + metrazh + "<br>"
 					+ "<strong>Цена за кубик: </strong>" + price + "<br>"
-					+ "<strong>Ссылка: </strong>" + "<a href='" + link + "'>" + link + "</a>" + "<br>"
+					+ "<strong>Ссылка: </strong>" + "<a target='_blank' href='" + link + "'>" + link + "</a>" + "<br>"
 					+ "<strong>Комментраий: </strong>" + comment;
 
 		var metka_filter;
@@ -1212,7 +1543,7 @@
 			 myPlacemark = new ymaps.Placemark(res.geoObjects.get(0).geometry._coordinates, {
 			 	balloonContentHeader: dest,
 			 	balloonContentBody: baloon,
-			 	balloonContentFooter: "<div><button onclick='details()' style='border: 1px solid black;'>Подробная информация</button></div>"
+			 	balloonContentFooter: "<div><button onclick='details()' style='border: 1px solid black; background: #737CA1;'>Подробная информация</button></div>"
 
 			 }, {
 			 	iconLayout: 'default#image',

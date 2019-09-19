@@ -5,7 +5,7 @@
     		printf("Не удалось подключиться: %s\n", mysqli_connect_error());
     		exit();
 			}
-			$res = mysqli_query($mysqli, "SELECT * FROM markers WHERE city = '$city_select'"); // послали запрос в дескриптор
+			$res = mysqli_query($mysqli, "SELECT * FROM markers"); // послали запрос в дескриптор
 
 			$arr_res = array();
 			while ($row = mysqli_fetch_assoc($res))

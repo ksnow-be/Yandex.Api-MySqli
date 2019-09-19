@@ -41,7 +41,7 @@
     		exit();
 			}
 
-			$query = "INSERT INTO markers(comment, metrazh, price, link, typeof, addr, lat, lng, floor, sep_exit, steps, high, power, remont, city, filter, sverka, stavka, index34, kanikuly, komiss) VALUES ('$comment', $metrazh, $price, '$link', '$kind', '$addr', $lat, $lng, $floor, '$sep_exit', $steps, $high, $power, '$remont', '$city', '$metka_filter', $sverka, $stavka, $index34, $kanikuly, $komiss)";
+			$query = "INSERT INTO markers(comment, metrazh, price, link, typeof, addr, lat, lng, floor, sep_exit, steps, high, power, remont, city, filter, sverka, stavka, index34, kanikuly, komiss) VALUES ('$comment', '$metrazh', '$price', '$link', '$kind', '$addr', $lat, $lng, $floor, '$sep_exit', $steps, $high, $power, '$remont', '$city', '$metka_filter', '$sverka', '$stavka', '$index34', '$kanikuly', '$komiss')";
 			if (!$mysqli->query($query)) { 
 				printf("Сообщение ошибки: %s\n", $mysqli->error); 
 			}
